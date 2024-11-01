@@ -14,7 +14,7 @@ class FunctionalDependency:
     def __str__(self):
         det_str = ','.join(sorted(self.determinants))
         dep_str = ','.join(sorted(self.dependents))
-        arrow = '-->' if self.is_multivalued else '->'
+        arrow = '-->>' if self.is_multivalued else '->'
         return f"{{{det_str}}} {arrow} {{{dep_str}}}"
 
 def parse_fd_file(file_path):
@@ -28,10 +28,10 @@ def parse_fd_file(file_path):
                     continue
                     
                 # Check if it's a multivalued dependency
-                is_multivalued = '-->' in line
+                is_multivalued = '-->>' in line
                 
                 # Split the line into determinants and dependents
-                parts = line.split('-->' if is_multivalued else '->')
+                parts = line.split('-->>' if is_multivalued else '->')
                 if len(parts) != 2:
                     continue
                 
@@ -50,6 +50,11 @@ def parse_fd_file(file_path):
         print(f"Error: File '{file_path}' not found.")
         return []
 
+def print_mvds(fds):
+    print("Multivalued Dependencies:")
+    for fd in fds:
+        if fd.is_multivalued:
+            print(f"MVD {fd.determinants} -->> {fd.dependents}")
 
 def read_csv(file_path):
     try:
@@ -444,7 +449,8 @@ def validate_mvd(table_info, data_df, mvd):
         
         if actual_count != expected_count:
             return False
-            
+
+    
     return True
 
 def find_4nf_violations(table_info, data_df, fds):
@@ -482,13 +488,15 @@ def find_4nf_violations(table_info, data_df, fds):
 def generate_4nf_queries(tables_info, fds, data_df):
     
    # Generate SQL queries for 4NF tables based on BCNF tables.
-    
+  
     
     queries = []
     final_tables_info = []
     
     for table_info in tables_info:
         mvd_violations = find_4nf_violations(table_info, data_df, fds)
+        
+
         
         if not mvd_violations:
             # If no 4NF violations, keep the original table
@@ -746,6 +754,7 @@ def main():
             print(f"\n{query}")
     if target_nf ==5:
     # Step 5: Generate 4NF queries based on BCNF tables
+        print_mvds(fds)
         print("\n-- Tables in 4NF --")
         save_queries_to_file(queries_4nf, "Output.sql")
         for table_name, query in queries_4nf:
