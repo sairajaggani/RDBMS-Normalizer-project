@@ -8,6 +8,6 @@ OrderID, DrinkID -->> FoodID , DrinkIngredient
 OrderID, DrinkID -->> FoodID , DrinkAllergen
 OrderID, FoodID -->> DrinkID , FoodIngredient
 OrderID, FoodID -->> DrinkID , FoodAllergen
- OrderID -->> DrinkID , FoodID
+OrderID -->> DrinkID , FoodID
 
 
