@@ -1,15 +1,12 @@
 OrderID -> Date, TotalCost, TotalDrinkCost, TotalFoodCost, CustomerID, CustomerName
 OrderID, DrinkID -> DrinkName, DrinkSize, DrinkQuantity, Milk
-OrderID, FoodID -> FoodName, FoodQuantity
+OrderID, FoodID -> FoodQuantity
 CustomerID -> CustomerName
 DrinkID -> DrinkName
 FoodID -> FoodName
-OrderID -> PromocodeUsed
-{OrderID, DrinkID} -->> {FoodID | DrinkIngredient}
-{OrderID, DrinkID} -->> {FoodID | DrinkAllergen}
-{OrderID, FoodID} -->>{DrinkID | FoodIngredient}
-{OrderID, FoodID} -->>{DrinkID | FoodAllergen}
- 
-
-
+{OrderID, DrinkID} -->> {FoodID , DrinkIngredient}
+{OrderID, DrinkID} -->> {FoodID , DrinkAllergen}
+{OrderID, FoodID} -->>{DrinkID , FoodIngredient}
+{OrderID, FoodID} -->>{DrinkID , FoodAllergen}
+ OrderID -->> {DrinkID , FoodID}
 
