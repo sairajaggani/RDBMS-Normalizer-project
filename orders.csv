@@ -1,0 +1,6 @@
+OrderID,CustomerID,CustomerName,Product,Category,Price,ShipAddress,City,Country
+1,C1,John Doe,Laptop,Electronics,1200,123 Main St,New York,USA
+2,C2,Jane Smith,Phone,Electronics,800,456 Oak Ave,London,UK
+3,C1,John Doe,Tablet,Electronics,500,123 Main St,New York,USA
+4,C3,Bob Wilson,Chair,Furniture,200,789 Pine Rd,Paris,France
+5,C2,Jane Smith,Desk,Furniture,400,456 Oak Ave,London,UK

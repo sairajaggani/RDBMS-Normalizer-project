@@ -1,0 +1,16 @@
+# Functional Dependencies (FDs)
+FD: OrderID -> CustomerID, CustomerName, Product
+FD: CustomerID -> CustomerName, ShipAddress, City, Country
+FD: Product -> Category, Price
+
+# Key Constraints (Keys)
+KEY: OrderID
+KEY: CustomerID
+KEY: Product
+
+# Domain Constraints (Domain)
+DOMAIN: Price: 0, 200, 400, 500, 800, 1200
+DOMAIN: Category: Electronics, Furniture
+DOMAIN: Country: USA, UK, France
+DOMAIN: City: New York, London, Paris
+
