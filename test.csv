@@ -1,0 +1,19 @@
+﻿StudentID,Course,TextBook
+S1,Database,DB Design
+S1,Database,SQL Basics
+S1,Database,Normalization Guide
+S1,Python,Python Programming
+S1,Python,Data Structures
+S1,Python,Algorithms
+S2,Database,DB Design
+S2,Database,SQL Basics
+S2,Database,Normalization Guide
+S2,Java,Java Fundamentals
+S2,Java,OOP Concepts
+S2,Java,Design Patterns
+S3,Python,Python Programming
+S3,Python,Data Structures
+S3,Python,Algorithms
+S3,Java,Java Fundamentals
+S3,Java,OOP Concepts
+S3,Java,Design Patterns
